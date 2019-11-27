@@ -1,2 +1,2 @@
 FLASK_ENV=development
-FLASK_APP=DSR-Store
+FLASK_APP=project
