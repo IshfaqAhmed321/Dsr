@@ -14,7 +14,7 @@ def create_app():
     app = Flask(__name__)
 
     app.config['SECRET_KEY'] = "9OLWxND4o83j4K4iuopO"
-    app.config['SQLALCHEMY_DATABASE_URI'] = "mysql://root:passroot@localhost/crudapplication"
+    app.config['SQLALCHEMY_DATABASE_URI'] = "mysql://sql12313574:fRzx6yXGtd@sql12.freemysqlhosting.net/sql12313574"
 
     db.init_app(app)
 
