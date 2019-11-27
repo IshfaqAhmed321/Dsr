@@ -13,8 +13,8 @@ from .user import user as user_blueprint
 def create_app():
     app = Flask(__name__)
 
-    app.config['SECRET_KEY'] = os.environ.get("secret_key")
-    app.config['SQLALCHEMY_DATABASE_URI'] = os.environ.get("database_uri")
+    app.config['SECRET_KEY'] = "9OLWxND4o83j4K4iuopO"
+    app.config['SQLALCHEMY_DATABASE_URI'] = "mysql://root:passroot@localhost/crudapplication"
 
     db.init_app(app)
 
