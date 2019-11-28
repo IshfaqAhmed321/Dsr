@@ -260,4 +260,20 @@
       </script>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>         
-<script type="text/javascript" src="{{url_for('static', filename='js/counter.js') }}"></script>
+<script>
+function increaseValue(valueid) {
+  var value = parseInt(document.getElementById(valueid).value, 10);
+  value = isNaN(value) ? 0 : value;
+  value++;
+  document.getElementById(valueid).value = value;
+}
+
+function decreaseValue(valueid) {
+  var value = parseInt(document.getElementById(valueid).value, 10);
+  value = isNaN(value) ? 0 : value;
+  value < 1 ? value = 1 : '';
+  value--;
+  document.getElementById(valueid).value = value;
+}
+
+</script>
