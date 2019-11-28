@@ -90,7 +90,7 @@ def remove_item(id_data):
 @login_required
 def clear_cart():
     """Discard all items from cart order is cancelled"""
-    
+    session.pop('_flashes', None)
     try:
         order_id = session['order_id']
         db.session.query(Cart).filter(Cart.order_id==order_id).delete()
@@ -111,6 +111,7 @@ def clear_cart():
 @user.route('/checkout', methods = ['GET'])
 @login_required
 def checkout():
+    session.pop('_flashes', None)
     order_id = session['order_id']
     
     data = []
