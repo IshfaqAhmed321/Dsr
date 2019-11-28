@@ -39,7 +39,12 @@
         
 </table>
 
-<a href="" class="button button1">Go Back</a>
+{% if session['role'] == "Admin" %}
+  <a href="/cur_orders" class="button button1">Go Back</a>
+  {% else %}
+  <a href="/cur_user_orders" class="button button1">Go Back</a>
+{% endif %}
+
 
 </body>
 

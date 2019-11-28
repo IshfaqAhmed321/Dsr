@@ -27,7 +27,8 @@ def login_post():
     login_user(user, remember=remember)
     session['userid'] = user.id
     if name == "Admin":
-        return redirect(url_for('admin.admin_page'))
+        session['role'] = "Admin"
+        return redirect(url_for('admin.admin_page'))    
     return redirect(url_for('user.user_page'))
 
 @auth.route('/signup')
@@ -61,5 +62,7 @@ def signup_post():
 
 @auth.route('/logout')
 def logout():
+    if session.get('role') is not None:
+        session.pop('role', None)
     logout_user()
     return redirect(url_for('main.index'))
