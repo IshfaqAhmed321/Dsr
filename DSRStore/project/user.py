@@ -122,11 +122,12 @@ def checkout():
             items.inventory = items.inventory - cart.quantity
             db.session.commit()
         flash(f"Order is placed Successfuly!")
+        session.pop('order_generated', None)
+        session.pop('order_id', None)
     except:
         flash(f"Something is wrong! Order could not be placed try again!")
 
-    session.pop('order_generated', None)
-    session.pop('order_id', None)
+    
     return redirect(url_for('user.user_page'))  
 
 @user.route('/cur_user_orders', methods=['GET'])
