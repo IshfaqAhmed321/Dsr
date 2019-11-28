@@ -106,7 +106,6 @@ def clear_cart():
     except:
         flash(f"Something is wrong! Cart is not empty")
     
-    
     return redirect(url_for('user.user_page'))
 
 @user.route('/checkout', methods = ['GET'])
@@ -120,7 +119,7 @@ def checkout():
     try:
         for cart in carts:
             items = Item.query.filter_by(id=cart.item_id).first()
-            item.inventory = item.inventory - cart.quantity
+            items.inventory = items.inventory - cart.quantity
             db.session.commit()
         flash(f"Order is placed Successfuly!")
     except:
