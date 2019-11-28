@@ -76,6 +76,7 @@ def show_cart():
 @login_required
 def remove_item(id_data):
     """Remove items from cart"""
+    session.pop('_flashes', None)
     try:
         cart = Cart.query.filter_by(id=id_data).first()
         db.session.delete(cart)
