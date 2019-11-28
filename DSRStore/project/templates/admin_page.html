@@ -52,7 +52,7 @@
                {% set dropdown = namespace(value=0) %}
                {% set counter = namespace(valid=0) %}
                {% for row in items %}
-               {% set counter.valid = row["id"] %}
+               {% set counter.valid = counter.valid + 1 %}
                {% set dropdown.value = row["id"] + 100 %}
                
                   <tr>
@@ -137,7 +137,7 @@
                                        <label>Inventory:</label>
                                       <div class="value-button" id="decrease" onclick="decreaseValue('{{counter.valid}}')" value="Decrease Value">-</div>
                                        <input type="number" name="inventory" id="{{counter.valid}}" value="{{row['inventory']}}" />
-                                        <div class="value-button" id="increase" onclick="increaseValue('{{counter.valid}}')" value="Increase Value">+</div>
+                                        <div class="value-button" id="increase" onclick="increaseValue()" value="Increase Value">+</div>
                      
                                     </div>
 
